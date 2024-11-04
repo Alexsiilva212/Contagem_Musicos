@@ -23,44 +23,64 @@
             background-color: #f2f2f2;
         }
 
-        /* From Uiverse.io by alexroumi */
-        button {
-            padding: 15px 25px;
-            border: unset;
-            border-radius: 15px;
-            color: #212121;
-            z-index: 1;
-            background: #e8e8e8;
+        /* From Uiverse.io by Gaurav-WebDev */
+        .button {
+            height: 50px;
+            width: 200px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
             position: relative;
-            font-weight: 1000;
-            font-size: 17px;
-            -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-            box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-            transition: all 250ms;
             overflow: hidden;
+            transition: all 0.5s ease-in-out;
         }
 
-        button::before {
-            content: "";
+        .button:hover {
+            box-shadow: .5px .5px 150px #252525;
+        }
+
+        .type1::after {
+            content: "Calculo Realizado";
+            height: 50px;
+            width: 200px;
+            background-color: #008080;
+            color: #fff;
             position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 0;
-            border-radius: 15px;
-            background-color: #212121;
-            z-index: -1;
-            -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-            box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-            transition: all 250ms
+            top: 0%;
+            left: 0%;
+            transform: translateY(50px);
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.5s ease-in-out;
         }
 
-        button:hover {
-            color: #e8e8e8;
+        .type1::before {
+            content: "Clique para Calcular";
+            height: 50px;
+            width: 200px;
+            background-color: #fff;
+            color: #008080;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            transform: translateY(0px) scale(1);
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.5s ease-in-out;
         }
 
-        button:hover::before {
-            width: 100%;
+        .type1:hover::after {
+            transform: translateY(0) scale(1);
+        }
+
+        .type1:hover::before {
+            transform: translateY(-50px) scale(0) rotate(120deg);
         }
     </style>
 </head>
@@ -79,15 +99,15 @@
         <tbody>
             <tr>
                 <td rowspan="3">Cordas</td>
-                <td><b>Violinos</b></td>
+                <td>Violinos</td>
                 <td><input type="number" id="violinos" value="0" min="0"></td>
             </tr>
             <tr>
-                <td><b>Violas</b></td>
+                <td>Violas</td>
                 <td><input type="number" id="violas" value="0" min="0"></td>
             </tr>
             <tr>
-                <td><b>Violoncelo</b></td>
+                <td>Violoncelo</td>
                 <td><input type="number" id="violoncelo" value="0" min="0"></td>
             </tr>
 
@@ -177,7 +197,7 @@
                 <td id="totalInstrumentos"><b>0</b></td>
             </tr>
             <tr>
-                <td colspan="3"><button onclick="calcularPorcentagem()">Calcular Porcentagem</button></td>
+                <td colspan="3"><button class="button type1" onclick="calcularPorcentagem()">Calcular Porcentagem</button></td>
             </tr>
         </tfoot>
     </table>
